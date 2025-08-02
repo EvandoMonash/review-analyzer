@@ -30,6 +30,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3002/api';
+console.log('API_BASE_URL:', API_BASE_URL); // Debug log
 const INACTIVITY_TIMEOUT = 30 * 60 * 1000; // 30 minutes
 const SESSION_CHECK_INTERVAL = 5 * 60 * 1000; // Check every 5 minutes
 
