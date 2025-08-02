@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3002; // Railway will provide PORT, fallback to
 
 // CORS configuration for production
 app.use(cors({
-    origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'https://your-app.vercel.app'],
+    origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'https://*.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
