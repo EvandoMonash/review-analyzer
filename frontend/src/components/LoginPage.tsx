@@ -102,6 +102,13 @@ export default function LoginPage() {
 
             if (isRegistering) {
                 result = await register(formData.email, formData.password, formData.name);
+                if (result.success) {
+                    setSuccessMessage(
+                        'Check your email! We’ve sent a confirmation link to your email address. Please click the link in your email to verify your account. After verifying, return to this page or sign in using the new tab.'
+                    );
+                    setFormData({ email: '', password: '', name: '', confirmPassword: '' });
+                    return;
+                }
             } else {
                 result = await login(formData.email, formData.password);
             }
@@ -109,7 +116,7 @@ export default function LoginPage() {
             if (!result.success) {
                 setError(result.error || 'An error occurred');
             }
-            // If successful, the AuthContext will handle the redirect
+            // If successful, the AuthContext will handle the redirect for login
         } catch (error) {
             setError('Network error. Please try again.');
         } finally {
